@@ -1,0 +1,12 @@
+<strings>
+    <string id="AppName">GarminTrexGame</string>
+    <string id="version">VER: </string>
+
+    <string id="author">Author: </string>
+    <string id="homePage">Home page: </string>
+
+    <string id="gameOver">GAME OVER</string>
+
+    <string id="menu_about">About</string>
+    <string id="menu_exit">Exit</string>
+</strings>
