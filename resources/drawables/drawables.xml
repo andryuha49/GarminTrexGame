@@ -1,0 +1,18 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="cloud" filename="../images/cloud.png" />
+    <bitmap id="ground" filename="../images/ground.png" />
+    <bitmap id="dino" filename="../images/dino.png" />
+    <bitmap id="dinoBump" filename="../images/dino-bump.png" />
+    <bitmap id="dinoLeftLegUp" filename="../images/dino-left-leg-up.png" />
+    <bitmap id="dinoRightLegUp" filename="../images/dino-right-leg-up.png" />
+    <bitmap id="sCactus1" filename="../images/s-cactus-1.png" />
+    <bitmap id="sCactus2" filename="../images/s-cactus-2.png" />
+    <bitmap id="sCactus3" filename="../images/s-cactus-3.png" />
+    <bitmap id="bCactus1" filename="../images/b-cactus-1.png" />
+    <bitmap id="bCactus2" filename="../images/b-cactus-2.png" />
+    <bitmap id="bCactus3" filename="../images/b-cactus-3.png" />
+    <bitmap id="pterodactylDown" filename="../images/pterodactyl-down.png" />
+    <bitmap id="pterodactylUp" filename="../images/pterodactyl-up.png" />
+    <bitmap id="restartBtn" filename="../images/restart-btn.png" />
+</drawables>
