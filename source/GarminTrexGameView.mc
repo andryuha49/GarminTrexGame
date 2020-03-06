@@ -5,19 +5,11 @@ using Toybox.Math;
 
 class GarminTrexGameView extends WatchUi.View {
     var gameManager;
-
-    var timer;
-    var tic = 30;
-    var myBitmap;
-
     var screenWidth;
-    
     
     function initialize(pGameManager) {
         View.initialize();
         gameManager = pGameManager;
-
-        timer = new Timer.Timer();
     }
 
     // Load your resources here

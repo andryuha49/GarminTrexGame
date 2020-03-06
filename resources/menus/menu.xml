@@ -1,4 +1,5 @@
 <menu id="MainMenu">
+    <menu-item id="play" label="@Strings.menu_play" />
     <menu-item id="about" label="@Strings.menu_about" />
     <menu-item id="exit" label="@Strings.menu_exit" />
 </menu>

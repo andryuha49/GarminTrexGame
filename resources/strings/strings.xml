@@ -1,12 +1,18 @@
 <strings>
     <string id="AppName">GarminTrexGame</string>
-    <string id="version">VER: </string>
+    <string id="version">0.0.2</string>
+    <string id="ver">VER:</string>
 
-    <string id="author">Author: </string>
-    <string id="homePage">Home page: </string>
+    <string id="author">Author:</string>
+    <string id="homePage">Home page:</string>
 
     <string id="gameOver">GAME OVER</string>
 
+    <string id="menu_play">Play</string>
     <string id="menu_about">About</string>
     <string id="menu_exit">Exit</string>
+
+    <string id="about_homePage1">//github.com/andryuha49/</string>
+    <string id="about_homePage2">GarminTrexGame</string>
+    <string id="about_author">Andriy Zherdiy</string>
 </strings>

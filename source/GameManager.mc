@@ -16,15 +16,14 @@ class GameManager {
             game.saveScore();
             game.end();
         }
-        game = new TrexGame();
+        game = new TrexGame.TrexGame();
         game.start(1);
 
         return game;
     }
 
     function drawLayout(dc) {
-
-        var game = new TrexGame();
+        var game = new TrexGame.TrexGame();
         game.drawLayout(dc);
     }
 }
