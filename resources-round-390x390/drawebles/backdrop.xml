@@ -1,0 +1,4 @@
+<drawable-list id="backdrop" background="Graphics.COLOR_BLUE">
+    <shape type="ellipse" x="center" y="320" a="490" b="90" color="Graphics.COLOR_GREEN" />
+    <shape type="circle" x="260" radius="35" color="Graphics.COLOR_YELLOW" />
+</drawable-list>

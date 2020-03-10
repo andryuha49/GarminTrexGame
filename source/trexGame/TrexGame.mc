@@ -46,7 +46,9 @@ module TrexGame {
 
             backdrop = new Rez.Drawables.backdrop();
 
-            groundYPosition = WatchUi.loadResource(Rez.Strings.settings_groundPosition).toNumber();
+            groundYPosition =
+                //Application.AppBase.getProperty("GroundPosition");
+                WatchUi.loadResource(Rez.Strings.properties_GroundPosition).toNumber();
         }
 
         function drawLayout(dc) {
@@ -226,7 +228,7 @@ module TrexGame {
         hidden function drawGameOver(dc) {
             if (restartBtn == null) {
                 restartBtn = new WatchUi.Bitmap(
-                    {:rezId=>Rez.Drawables.restartBtn,:locX=>WatchUi.LAYOUT_HALIGN_CENTER,:locY=>groundYPosition - 70}
+                    {:rezId=>Rez.Drawables.restartBtn,:locX=>WatchUi.LAYOUT_HALIGN_CENTER,:locY=>groundYPosition - 65}
                 );
             }
             restartBtn.draw(dc);
@@ -273,7 +275,7 @@ module TrexGame {
             var x;
             var y = 2;
             var justify;
-            if (screenShape == System.SCREEN_SHAPE_ROUND) {
+            if (screenShape == System.SCREEN_SHAPE_ROUND || screenShape == System.SCREEN_SHAPE_SEMI_ROUND) {
                 x = screenWidth / 2;
                 justify = Graphics.TEXT_JUSTIFY_CENTER;
             } else {
@@ -287,7 +289,7 @@ module TrexGame {
             var x;
             var y = 2;
             var justify;
-            if (screenShape == System.SCREEN_SHAPE_ROUND) {
+            if (screenShape == System.SCREEN_SHAPE_ROUND || screenShape == System.SCREEN_SHAPE_SEMI_ROUND) {
                 x = screenWidth / 2;
                 y = screenHeight - 38;
                 justify = Graphics.TEXT_JUSTIFY_CENTER;
