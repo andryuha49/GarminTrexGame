@@ -37,7 +37,7 @@ class GarminTrexGameInputDelegate extends WatchUi.InputDelegate {
     }
 
     hidden function openMenu() {
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new GarminTrexGameMenuDelegate(), WatchUi.SLIDE_UP);
+        WatchUi.pushView(new Rez.Menus.MainMenu(), new GarminTrexGameMenuDelegate(gameManager), WatchUi.SLIDE_UP);
     }
 
     hidden function onGameTap() {
