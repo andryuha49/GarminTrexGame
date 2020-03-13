@@ -10,7 +10,6 @@ class GarminTrexGameInputDelegate extends WatchUi.InputDelegate {
     }
 
     function onKey(keyEvent) {
-        System.println("KEY ===>>>" + keyEvent.getKey());      // e.g. CLICK_TYPE_TAP = 0
         var key = keyEvent.getKey();
         if (key == WatchUi.KEY_MENU) {
             openMenu();
@@ -25,14 +24,12 @@ class GarminTrexGameInputDelegate extends WatchUi.InputDelegate {
     }
 
     function onTap(clickEvent) {
-        System.println("CLICK ===>>>" + clickEvent.getType());      // e.g. CLICK_TYPE_TAP = 0
-
         onGameTap();
         return true;
     }
 
     function onSwipe(swipeEvent) {
-        System.println(swipeEvent.getDirection()); // e.g. SWIPE_DOWN = 2
+        // System.println(swipeEvent.getDirection()); // e.g. SWIPE_DOWN = 2
         return true;
     }
 

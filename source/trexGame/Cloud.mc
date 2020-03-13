@@ -1,6 +1,7 @@
+using Toybox.WatchUi;
+
 module TrexGame {
     class Cloud {
-        hidden const speed = 1;
 
         hidden var cloudBitmap;
         hidden var cloudYPosition = 30;
@@ -24,7 +25,7 @@ module TrexGame {
             }
 
             cloudBitmap.setLocation(screenWidth - step, cloudYPosition);
-            step = step + speed;
+            step = step + Constants.CLOUD_PIXELS_SPEED;
         }
 
         hidden function makeNewCloud() {

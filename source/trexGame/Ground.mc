@@ -1,6 +1,7 @@
+using Toybox.WatchUi;
+
 module TrexGame {
     class Ground {
-        hidden const speed = 7;
 
         hidden var groundYPosition;
         hidden var screenWidth;
@@ -23,7 +24,7 @@ module TrexGame {
                 step = 0;
             }
             groundBitmap.setLocation(0 - step, groundYPosition);
-            step = step + speed;
+            step = step + Constants.PIXELS_SPEED;
         }
     }
 }

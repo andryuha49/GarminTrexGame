@@ -1,7 +1,7 @@
 using Toybox.Application;
 using Toybox.WatchUi;
 
-class GarminTrexGameApp extends Application.AppBase {
+class App extends Application.AppBase {
     var gameManager;
 
     function initialize() {

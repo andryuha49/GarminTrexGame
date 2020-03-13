@@ -1,3 +1,5 @@
+using Toybox.WatchUi;
+
 module TrexGame {
     class GameCharacter {
         var bitmap;

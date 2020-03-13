@@ -2,7 +2,6 @@ using Toybox.Math;
 
 module TrexGame {
     class Obstacle extends GameCharacter {
-        hidden const speed = 7;
 
         hidden var groundYPosition;
         hidden var screenWidth;
@@ -38,7 +37,7 @@ module TrexGame {
             }
             xPosition = screenWidth - step;
             bitmap.setLocation(xPosition, yPosition);
-            step = step + speed;
+            step = step + Constants.PIXELS_SPEED;
         }
 
         function draw(dc) {
