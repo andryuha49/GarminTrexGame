@@ -5,6 +5,11 @@ This is implementation of T-Rex dino game from Chrome offline mode
 This is a seed project for writing [Garmin Connect IQ](http://developer.garmin.com/connect-iq/) applications. Instead of using the Eclipse plugin (which works rather poorly...),
 you can use any text editor of your choice and **compile**, **run** or **package** your project using *make*.
 
+## Links
+- [Garmin Connect IQ store](https://apps.garmin.com/en-US/apps/c3f58c63-8e46-49cd-9baa-fb0196da0165)
+- [Demo video](https://youtu.be/qg9V9x0KdGc)
+- [<img src="https://i9.ytimg.com/vi/qg9V9x0KdGc/mq1.jpg?sqp=CJ33rfMF&rs=AOn4CLAcddT7aaSS6SpNK1L1G8-quCfqqQ" width="50%">](https://youtu.be/qg9V9x0KdGc)
+
 ## Setup
 All you'll need to get started is edit (create) the ```properties.mk``` file. Here's a description of the variables:
 
@@ -23,4 +28,4 @@ All you'll need to get started is edit (create) the ```properties.mk``` file. He
 ## How to use?
 To execute the **run** target, run ```make run``` from the home folder of your app
 
-#####or use **Eclipse** plugin.
+##### or use **Eclipse** plugin.

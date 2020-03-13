@@ -1,17 +1,18 @@
 using Toybox.Timer;
 using Toybox.WatchUi;
 using Toybox.Math;
+using Toybox.Application;
 
 module TrexGame {
-    class TrexGame extends WatchUi.InputDelegate {
-        hidden const timerInterval = 100;
+    class TrexGameProcess extends WatchUi.InputDelegate {
+        hidden var timerInterval = Constants.START_TIMER_INTERVAL;
 
         hidden var restartBtn;
         hidden var gameTimer;
+        hidden var scoreTimer;
         hidden var score = 0;
         hidden var highScore = 0;
         hidden var gameLevel = 1;
-        hidden var tic = 0;
 
         hidden var isGameOver = false;
 
@@ -46,9 +47,10 @@ module TrexGame {
 
             backdrop = new Rez.Drawables.backdrop();
 
-            groundYPosition =
+            groundYPosition = WatchUi.loadResource(Rez.Strings.properties_GroundPosition).toNumber();
                 //Application.AppBase.getProperty("GroundPosition");
-                WatchUi.loadResource(Rez.Strings.properties_GroundPosition).toNumber();
+
+            scoreTimer = new Timer.Timer();
         }
 
         function drawLayout(dc) {
@@ -58,12 +60,11 @@ module TrexGame {
             cloud.draw(dc);
             ground.draw(dc);
             trex.draw(dc);
-
-            //WatchUi.requestUpdate();
         }
 
         function start(level) {
             score = 0;
+            timerInterval = Constants.START_TIMER_INTERVAL;
             isGameOver = false;
             if (level != null) {
                 gameLevel = level;
@@ -71,11 +72,25 @@ module TrexGame {
 
             makeGameObjects();
 
+            var app = Application.getApp();
+            var hiScore = app.getProperty(Enums.Keys.HIGH_SCORE_KEY);
+            if (hiScore != null) {
+                highScore = hiScore;
+            }
+
+            scoreTimer.start(method(:scoreTimerCallback), Constants.SCORE_TIMER_INTERVAL, true);
+            restartTimer();
+
+            onTap();
+        }
+
+        hidden function restartTimer() {
             if (gameTimer == null) {
-                gameTimer = new Timer.Timer();
+                 gameTimer = new Timer.Timer();
+            } else {
+                gameTimer.stop();
             }
             gameTimer.start( method(:timerCallback), timerInterval, true );
-            onTap();
         }
 
         hidden function makeGameObjects() {
@@ -128,19 +143,14 @@ module TrexGame {
             }
         }
 
-        function saveScore() {
-
-        }
-
         function end() {
             if (gameTimer != null) {
                 gameTimer.stop();
             }
+            scoreTimer.stop();
         }
 
         function timerCallback() {
-            tic = tic + 1;
-
             // pause for first dino jump
             if (score > 25) {
                 obstacle.move();
@@ -149,11 +159,21 @@ module TrexGame {
             cloud.move();
             trex.move();
 
-            score = score + 1;
-
             checkBumping();
 
             WatchUi.requestUpdate();
+        }
+
+        function scoreTimerCallback() {
+            score = score + 1;
+            updateTimer();
+        }
+
+        hidden function updateTimer() {
+            if (timerInterval > 50 && score % 100 == 0) {
+                timerInterval = timerInterval - 10;
+                restartTimer();
+            }
         }
 
         hidden function checkBumping() {
@@ -222,6 +242,8 @@ module TrexGame {
         hidden function updateHighScrore() {
             if (score > highScore) {
                 highScore = score;
+                var app = Application.getApp();
+                app.setProperty(Enums.Keys.HIGH_SCORE_KEY, highScore);
             }
         }
 

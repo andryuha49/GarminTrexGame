@@ -1,6 +1,5 @@
 module TrexGame {
     class Trex extends GameCharacter {
-        hidden const speed = 7;
         hidden const trexHeight = 47;
         hidden const trexXPosition = 5;
 
@@ -46,7 +45,7 @@ module TrexGame {
         function move() {
             if (isJumping == true) {
                 if (isJumpingUp == true) {
-                    var y = yPosition - speed;
+                    var y = yPosition - Constants.PIXELS_SPEED;
                     if (y > topJumpPosition) {
                         yPosition = y;
                     } else {
@@ -54,7 +53,7 @@ module TrexGame {
                         isJumpingDown = true;
                     }
                 } else {
-                    var y = yPosition + speed;
+                    var y = yPosition + Constants.PIXELS_SPEED;
                     if (y < defaultYPosition) {
                         yPosition = y;
                     } else {
