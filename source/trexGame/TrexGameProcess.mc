@@ -108,6 +108,10 @@ module TrexGame {
             return true;
         }
 
+        function crouch(crouched) {
+            trex.crouch(crouched);
+        }
+
         function onUpdate(dc) {
             dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
 
@@ -178,7 +182,7 @@ module TrexGame {
 
         hidden function checkBumping() {
             obstacleLines = getCharacterLines(obstacle, 10, 10, 5, 5);
-            trexLines = getCharacterLines(trex, 3, 5, 10, 10);
+            trexLines = getCharacterLines(trex, 5, 5, 10, 10);
 
             for (var i = 0; i < obstacleLines.size(); i++) {
                 var isIntersection = shapeIntersection(obstacleLines[i], trexLines);
