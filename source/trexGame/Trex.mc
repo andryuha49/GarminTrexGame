@@ -1,6 +1,7 @@
 module TrexGame {
     class Trex extends GameCharacter {
         hidden const trexHeight = 47;
+        hidden const trexCrouchedHeight = 30;
         hidden const trexXPosition = 5;
 
         hidden var trexLeftLegUpBitmap;
@@ -9,6 +10,8 @@ module TrexGame {
         hidden var isJumping = false;
         hidden var isJumpingUp = false;
         hidden var isJumpingDown = false;
+
+        hidden var isCrouched = false;
 
         hidden var isLeftLegUp = null;
         hidden var isBumped = false;
@@ -31,12 +34,13 @@ module TrexGame {
             } else {
                 if (isLeftLegUp == null) {
                     bitmap.setBitmap(Rez.Drawables.dino);
-                } else if (isLeftLegUp == true) {
-                    //isLeftLegUp = false;
-                    bitmap.setBitmap(Rez.Drawables.dinoLeftLegUp);
                 } else {
-                    //isLeftLegUp = true;
-                    bitmap.setBitmap(Rez.Drawables.dinoRightLegUp);
+                    bitmap.setLocation(xPosition, getY());
+                    if (isLeftLegUp == true) {
+                        bitmap.setBitmap(isCrouched ? Rez.Drawables.dinoCrouchedLeftLegUp : Rez.Drawables.dinoLeftLegUp);
+                    } else {
+                        bitmap.setBitmap(isCrouched ? Rez.Drawables.dinoCrouchedRightLegUp : Rez.Drawables.dinoRightLegUp);
+                    }
                 }
             }
             bitmap.draw(dc);
@@ -76,8 +80,19 @@ module TrexGame {
             makeJumpAnimation();
         }
 
+        function crouch(crouched) {
+            isCrouched = crouched;
+        }
+
         function bump() {
+            isJumping = false;
+            isCrouched = false;
+
             isBumped = true;
+        }
+
+        function getY() {
+            return isCrouched && !isJumping ? yPosition + 17 : yPosition;
         }
 
         hidden function makeJumpAnimation() {

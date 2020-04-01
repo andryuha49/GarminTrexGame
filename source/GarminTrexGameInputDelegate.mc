@@ -17,8 +17,24 @@ class GarminTrexGameInputDelegate extends WatchUi.InputDelegate {
         if (key == WatchUi.KEY_ESC) {
             openMenu();
         }
-        if (key == WatchUi.KEY_ENTER) {
+        if (key == WatchUi.KEY_ENTER || key == WatchUi.KEY_UP) {
             onGameTap();
+        }
+        return true;
+    }
+
+    function onKeyPressed(keyEvent) {
+        var key = keyEvent.getKey();
+        if (key == WatchUi.KEY_DOWN) {
+            onCrouch(true);
+        }
+        return true;
+    }
+
+    function onKeyReleased(keyEvent) {
+        var key = keyEvent.getKey();
+        if (key == WatchUi.KEY_DOWN) {
+            onCrouch(false);
         }
         return true;
     }
@@ -29,7 +45,6 @@ class GarminTrexGameInputDelegate extends WatchUi.InputDelegate {
     }
 
     function onSwipe(swipeEvent) {
-        // System.println(swipeEvent.getDirection()); // e.g. SWIPE_DOWN = 2
         return true;
     }
 
@@ -38,10 +53,17 @@ class GarminTrexGameInputDelegate extends WatchUi.InputDelegate {
     }
 
     hidden function onGameTap() {
-        var curentGame = gameManager.getCurrentGame();
-        if (curentGame == null) {
-            curentGame = gameManager.makeNewGame();
+        var currentGame = gameManager.getCurrentGame();
+        if (currentGame == null) {
+            currentGame = gameManager.makeNewGame();
         }
-        curentGame.onTap();
+        currentGame.onTap();
+    }
+
+    hidden function onCrouch(crouched) {
+        var currentGame = gameManager.getCurrentGame();
+        if (currentGame != null) {
+            currentGame.crouch(crouched);
+        }
     }
 }

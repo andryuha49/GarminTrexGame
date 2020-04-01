@@ -6,6 +6,8 @@
     <bitmap id="dinoBump" filename="../images/dino-bump.png" />
     <bitmap id="dinoLeftLegUp" filename="../images/dino-left-leg-up.png" />
     <bitmap id="dinoRightLegUp" filename="../images/dino-right-leg-up.png" />
+    <bitmap id="dinoCrouchedLeftLegUp" filename="../images/dino-crouched-left-leg-up.png" />
+    <bitmap id="dinoCrouchedRightLegUp" filename="../images/dino-crouched-right-leg-up.png" />
     <bitmap id="sCactus1" filename="../images/s-cactus-1.png" />
     <bitmap id="sCactus2" filename="../images/s-cactus-2.png" />
     <bitmap id="sCactus3" filename="../images/s-cactus-3.png" />
