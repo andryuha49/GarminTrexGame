@@ -8,14 +8,13 @@ class GarminTrexGameView extends WatchUi.View {
     var screenWidth;
     
     function initialize(pGameManager) {
-        View.initialize();
+        WatchUi.View.initialize();
         gameManager = pGameManager;
     }
 
     // Load your resources here
     function onLayout(dc) {
         screenWidth = dc.getWidth();
-        gameManager.drawLayout(dc);
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -29,6 +28,8 @@ class GarminTrexGameView extends WatchUi.View {
         var game = gameManager.getCurrentGame();
         if (game != null) {
             game.onUpdate(dc);
+        } else {
+            gameManager.drawGameLayout(dc);
         }
     }
 

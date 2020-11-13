@@ -21,7 +21,7 @@ class GameManager {
         return game;
     }
 
-    function drawLayout(dc) {
+    function drawGameLayout(dc) {
         var game = new TrexGame.TrexGameProcess();
         game.drawLayout(dc);
     }
